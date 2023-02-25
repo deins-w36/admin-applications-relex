@@ -1,0 +1,23 @@
+.role {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+    &__patient {
+        margin: 20px 0;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &__admin {
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    a {
+        display: block;
+        text-decoration: none;
+    }
+}

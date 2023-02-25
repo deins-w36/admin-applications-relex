@@ -1,0 +1,33 @@
+.auth {
+    &__title {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    form {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    &__info {
+        position: absolute;
+        bottom: 65px;
+    }
+    &__submit {
+        margin-top: 50px;
+    }
+    &__back {
+        margin: 0 auto;
+        margin-top: 80px;
+    }
+}
