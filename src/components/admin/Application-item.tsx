@@ -38,7 +38,8 @@ const ApplicationItem: FC<IApplication> = ({
             action,
             dateApplicationCreate
         })
-        remove(ref(db, `/applications-queue/${id}`))
+            .then(() => remove(ref(db, `/applications-queue/${id}`)))
+            .catch((err) => console.error(err))
         dispatch(DeleteApplication(id))
     }
 
@@ -48,7 +49,9 @@ const ApplicationItem: FC<IApplication> = ({
                 <div className='admin__item__left'>
                     <div className='admin__item__id'>id заявки - {id}</div>
                     <div className='admin__item__hard'>Тяжесть симптомов - {levelSymptoms}</div>
-                    <div className='admin__item__date'>Дата и время посещения - {date} / {time}</div>
+                    <div className='admin__item__date'>
+                        Дата и время посещения - {date} / {time}
+                    </div>
                 </div>
                 <div className='admin__item__right'>
                     <div className='admin__item__name'>Имя фамилия - {name}</div>

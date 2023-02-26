@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { authChange } from '../../store/actions'
-import { ref, onValue } from 'firebase/database'
+import { ref, get } from 'firebase/database'
 
 import { db } from '../../firebase'
 
@@ -32,12 +32,16 @@ const Auth: FC = () => {
         }
 
         //Получени логина и паролья с базы данных
-        onValue(ref(db, '/auth'), (snapshot) => {
-            const data = snapshot.val()
-            if (data !== null) {
-                setAuth(data)
-            }
-        })
+        get(ref(db, '/auth'))
+            .then((snapshot) => {
+                const data = snapshot.val()
+                if (data !== null) {
+                    setAuth(data)
+                } else {
+                    setInfo('Проблемы с подключением к базе данных')
+                }
+            })
+            .catch((err) => setInfo('Что то пошло не так, повторите попытку позже('))
         // eslint-disable-next-line
     }, [])
 

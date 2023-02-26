@@ -28,7 +28,6 @@ const Archive: FC = () => {
                 arrSort.sort(function (a, b) {
                     return b.dateApplicationCreate - a.dateApplicationCreate
                 })
-                console.log('fetch')
 
                 setArchiveData(arrSort)
                 setLoading(false)
@@ -44,7 +43,6 @@ const Archive: FC = () => {
     useEffect(() => {
         if (search.length === 0) {
             setVisibleArchiveData(archiveData)
-            console.log('search')
             return
         }
         setVisibleArchiveData(archiveData.filter((item) => item.name.toLowerCase().includes(search.toLowerCase())))
